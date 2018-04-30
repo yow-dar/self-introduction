@@ -1,0 +1,75 @@
+body{
+margin:0 px;
+padding:0 px;
+background-color:yellow;
+}
+#back{
+width:130vh;
+height:100vh;
+margin:auto;
+}
+#topic{
+position:absolute;
+width:30%;
+height:30%;
+left:35%;
+top:35%;
+margin:auto;
+}
+#topic>h1{
+position:absolute;
+font-size:8vh;
+text-shadow:0.5vh 0.5vh black;
+margin:5% 15%;
+}
+#topic>div{
+position:absolute;
+width:100%;
+height:2%;
+top:50%;
+background-color:black;
+}
+#topic>p{
+position:absolute;
+top:40%;
+left:15%;
+font-size:3vh;
+color:white;
+border-style:solid;
+border-radius:3vh;
+border-color:black;
+background-color:black;
+padding:1% 20% 4% 20%;
+}
+#home{
+position:absolute;
+left:38%;
+top:10%;
+}
+#about_us{
+position:absolute;
+left:47%;
+top:10%;
+}
+#team{
+position:absolute;
+left:58%;
+top:10%;
+}
+#sign_in{
+position:absolute;
+left:90%;
+top:10%;
+border-style:solid;
+border-width:0.5vh;
+border-radius:2vh;
+padding:0.5vh 1vh 0.5vh 1vh;
+}
+#bottom{
+position:absolute;
+width:100%;
+height:6%;
+bottom:0px;
+left:0px;
+background-color:black;
+}
