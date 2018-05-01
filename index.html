@@ -5,6 +5,29 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="web-css.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+    <script>
+$(document).ready(function(){
+
+$(document).mousemove(function(event){
+let mouse_x = event.pageX;
+let mouse_y = event.pageY;
+let window_w = $("body").width();
+let window_h = $("body").height();
+$('.food').each(function(){
+  let this_x = parseInt($(this).css("left"));
+  let this_y = parseInt($(this).css("top"));
+  let dx = mouse_x - this_x;
+  let dy = mouse_y - this_y;
+  
+  $(this).css({
+      "-webkit-filter" : "drop-shadow(" + dx/window_w*(-3) + "vh " + dy/window_h*(-3) + "vh 2vh rgba(0,0,0,0.7)"
+      ,"filter" : "drop-shadow(" + dx/window_w*(-3) + "vh " + dy/window_h*(-3) + "vh 2vh rgba(0,0,0,0.7)"
+  });
+})
+});
+
+});
+    </script>
   </head>
   
   <body>
@@ -18,6 +41,12 @@
         <div></div>
         <p>台南美食之旅</p>
       </div>
+      <h1 id="logo_title">一起吃飯吧!<b><br>In Tainan</b></h1>
+      <img id="logo" src="img/logo.png">
+      <img id="facebook" class="social" src="img/facebook.png">
+      <img id="twitter" class="social" src="img/twitter.png">
+      <img id="mail" class="social" src="img/mail.png">
+      <img id="food_hamburger" class="food" src="img/food_hamburger.png">
       <img id="cup_misoshiru_1" class="food" src="img/cup_misoshiru.png">
       <img id="cup_misoshiru_2" class="food" src="img/cup_misoshiru.png">
       <img id="drink_denkyu_bottle_yellow_1" class="food" src="img/drink_denkyu_bottle_yellow.png">
