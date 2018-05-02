@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet'>
+
+  <title>Home</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="./js/menu.js"></script>
+  
+  <link rel="stylesheet" href="./css/menustyle.css">
+  <link rel="stylesheet" href="./css/buttonstyle.css">
+  <link id="foodcss" rel="stylesheet" href="./css/home.css">
+
+  <script>
+    // triggered when 1. window is resized, 2. startup
+    function adjustDisplay()
+    {
+      $( '.container' ).css('height', ($( window ).height()-66)+'px');
+      $('#dbg').text( $(window).width() + ' x ' + $(window).height() );
+
+      if( parseInt($( window ).width()) > 768 ) { // landscape
+        $( '#sharebar' ).css('height', '44px');
+        $( '.share_img' ).css('height', '33px');
+        $( '#logo_img' ).css('height', '66px');
+        $( '#logo_text').css('transform', 'translateY(-15px)');
+
+        $( '#topic' ).css({
+          'width': '40vw',
+          'bottom': '42vh'
+        });
+
+        $( '#foodcss' ).attr('href', './css/home.css');
+
+        shadowSwitch = 1;
+      } else { // portrait
+        $( '#sharebar' ).css('height', '33px');
+        $( '.share_img' ).css('height', '22px');
+        $( '#logo_img' ).css('height', '44px');
+        $( '#logo_text').css('transform', 'translateY(-5px)');
+
+        $( '#topic' ).css({
+          'width': '65vw',
+          'bottom': '48vh'
+        });
+
+        $( '#foodcss' ).attr('href', './css/home_mobile.css');
+
+        shadowSwitch = 0;
+        $( '.food' ).css({
+          "-webkit-filter" : "",
+          "filter" : ""
+        })
+      }
+
+      // center align
+      $( '.center-align' ).each(function(){
+        $( this ).css('margin-left' , '-' + parseInt( $( this ).css('width') )/2 + 'px');
+      });
+    }
+
+    // initialize
+    var shadowSwitch = 1;
+    $( document ).ready(function(){
+      adjustDisplay();
+      $(document).mousemove( function(event) {
+        if(shadowSwitch != 1)
+          return;
+        let mouse_x = event.pageX;
+        let mouse_y = event.pageY;
+        let window_w = $("body").width();
+        let window_h = $("body").height();
+        $('.food').each( function() {
+          let this_x = parseInt($(this).css("left"));
+          let this_y = parseInt($(this).css("top"));
+          let dx = mouse_x - this_x;
+          let dy = mouse_y - this_y;
+        
+          $(this).css({
+            "-webkit-filter" : "drop-shadow(" + dx/window_w*(-3) + "vh " + dy/window_h*(-3) + "vh 2pt rgba(0,0,0,0.7)",
+            "filter" : "drop-shadow(" + dx/window_w*(-3) + "vh " + dy/window_h*(-3) + "vh 2pt rgba(0,0,0,0.7)"
+          });
+        })
+      });
+
+    });
+    $( window ).resize(adjustDisplay);
+  </script>
+
+  <style>
+    .center-align {
+      position: absolute;
+      display: inline-block;
+      bottom: 0px;
+      left: 50vw;
+    }
+  </style>
+
+  
+
+</head>
+
+<body scroll="no" style="overflow: hidden;background: url(./img/bg_aboutus.png);background-repeat: no-repeat;background-size: cover;">
+
+
+<div class="site-container">
+  <div class="site-pusher">
+    
+    <header class="header">
+      
+      <a href="#" class="header__icon" id="header__icon"></a>
+      <a href="#"  class="header__logo">
+        <img id="logo_img" src="./img/logo.png" style="height: 66px;padding-top: 10px;padding-left: 20px;">
+        <p id="logo_text" style="display: inline-block;line-height: 15px;font-family: calibri;transform: translateY(-15px);">
+          <spanstyle="font-size: 18pt;">一起吃飯吧!</span>
+          <br>
+          <span style="font-size: 10pt;">In Tainan</span>
+        </p>
+      </a>
+      
+      <nav class="menu">
+        <a href="./home.html">Home</a>
+        <a href="./aboutus.html">About Us</a>
+        <a href="./team.html">Team</a>
+        <a href="#" id="signin" class="btn black" style="padding: 10px 20pt;line-height: 10px;">Sign In</a>
+      </nav>
+      
+    </header>
+
+    <div class="site-content">
+      <div class="container" style="width: 100vw;">
+
+        <img id="topic" class="center-align" style="height: auto;width: 500px;bottom: 42vh;z-index: 1000" src="./img/topic.png">
+
+        <img id="cup_misoshiru_1" class="food" src="img/cup_misoshiru.png">
+        <img id="cup_misoshiru_2" class="food" src="img/cup_misoshiru.png">
+        <img id="drink_denkyu_bottle_yellow_1" class="food" src="img/drink_denkyu_bottle_yellow.png">
+        <img id="drink_denkyu_bottle_yellow_2" class="food" src="img/drink_denkyu_bottle_yellow.png">
+        <img id="food_harusame_soup_1" class="food" src="img/food_harusame_soup.png">
+        <img id="food_harusame_soup_2" class="food" src="img/food_harusame_soup.png">
+        <img id="food_ozouni_shiromiso_1" class="food" src="img/food_ozouni_shiromiso.png">
+        <img id="food_ozouni_shiromiso_2" class="food" src="img/food_ozouni_shiromiso.png">
+        <img id="food_yakimanju_1" class="food" src="img/food_yakimanju.png">
+        <img id="food_yakimanju_2" class="food" src="img/food_yakimanju.png">
+        <img id="onigiri_tenmusu_1" class="food" src="img/onigiri_tenmusu.png">
+        <img id="onigiri_tenmusu_2" class="food" src="img/onigiri_tenmusu.png">
+        <img id="sushi_maguro_dukushi_1" class="food" src="img/sushi_maguro_dukushi.png">
+        <img id="sushi_maguro_dukushi_2" class="food" src="img/sushi_maguro_dukushi.png">
+        
+
+
+        <div id="sharebar" style="bottom:0px;background-color: dimgray;width: 100vw;height: 44px;position: absolute;display: inline-block;">
+          <a id="share_mail" href="#" style="float: right;">
+            <img class="share_img" src="./img/share_mail.png" style="height: 33px;padding: 7px 30px 15px 15px;">
+          </a>
+          <a id="share_twitter" href="#" style="float: right;">
+            <img class="share_img" src="./img/share_twitter.png" style="height: 33px;padding: 7px 15px;">
+          </a>
+          <a id="share_fb" href="#" style="float: right;">
+            <img class="share_img" src="./img/share_fb.png" style="height: 33px;padding: 7px 15px;">
+          </a>
+        </div>
+      </div> <!-- END container -->
+    </div> <!-- END site-content -->
+    <div class="site-cache" id="site-cache"></div>
+  </div> <!-- END site-pusher -->
+</div> <!-- END site-container -->
+
+</body>
+
+</html>
