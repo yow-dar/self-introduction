@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet'>
+
+  <title>Team</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="./js/menu.js"></script>
+  
+  <link rel="stylesheet" href="./css/menustyle.css">
+  <link rel="stylesheet" href="./css/buttonstyle.css">
+
+  <script>
+    // triggered when 1. window is resized, 2. startup
+    function adjustDisplay()
+    {
+      $( '.container' ).css('height', ($( window ).height()-66)+'px');
+      //$('#dbg').text( $(window).width() + ' x ' + $(window).height() );
+
+      if( parseInt($( window ).width()) > 768 ) { // landscape
+        $( '#bg_img' ).css({
+          'width': '80vw',
+          'height': 'auto'
+        });
+        $( '#member_img' ).css({
+          'width': 'auto',
+          'height': '80vh'
+        });
+        $( '#jobtitle' ).css({
+          'transform': 'translate(15vw, -10vh)',
+          'font-size': '10vh'
+        });
+        $( '#prev_btn' ).css('transform', 'translate(250px, -80vh)');
+        $( '#next_btn' ).css('transform', 'translate(300px, -80vh)');
+        $( '#info_name' ).css('font-size', '35pt');
+        $( '#info' ).css({
+          'font-size': '15pt',
+          'transform': 'translate(5vw, 30vh)'
+        });
+        $( '#sharebar' ).css('height', '44px');
+        $( '.share_img' ).css('height', '33px');
+        $( '#logo_img' ).css('height', '66px');
+        $( '#logo_text').css('transform', 'translateY(-15px)');
+      } else { // portrait
+        $( '#bg_img' ).css({
+          'width': '120vw',
+          'height': 'auto'
+        });
+        $( '#member_img' ).css({
+          'width': 'auto',
+          'height': '60vh'
+        });
+        $( '#jobtitle' ).css({
+          'transform': 'translate(0px, -10vh)',
+          'font-size': '8vh'
+        });
+        $( '#prev_btn' ).css('transform', 'translate(-120px, -50vh)');
+        $( '#next_btn' ).css('transform', 'translate(80px, -50vh)');
+        $( '#info_name' ).css('font-size', '25pt');
+        $( '#info' ).css({
+          'font-size': '10pt',
+          'transform': 'translate(7vw, 7vh)'
+        });
+        $( '#sharebar' ).css('height', '33px');
+        $( '.share_img' ).css('height', '22px');
+        $( '#logo_img' ).css('height', '44px');
+        $( '#logo_text').css('transform', 'translateY(-5px)');
+      }
+
+      // center align
+      $( '.center-align' ).each(function(){
+        $( this ).css('margin-left' , '-' + parseInt( $( this ).css('width') )/2 + 'px');
+      });
+    }
+
+    var cur_member_no = 0;
+    var jobtitle_text = ['Designer', 'Designer', 'Content provider', 'Content provider', 'Engineer', 'Engineer', 'Engineer', 'Engineer'];
+    var info_name_text = ['王珉', '陳姵君', '黃家蓉', '龍淑君', '江佳龍', '張恩維', '余宥達', '王喬韋'];
+    var info_dep_text = ['工業設計系 碩一', '心理學系 四年級', '歷史學系 四年級', '歷史學系 二年級', '機械工程系 四年級', '電機工程系 四年級', '資訊工程系 二年級', '電機工程系 二年級'];
+    var info_hobby_text = ['電影 貓咪 遊戲 旅行', '打球 看書 聽歌 到處逛逛', '追劇 看電影 到處逛街 運動', '旅行 文藝 攝影 看書', '玩遊戲 聽搖滾樂 運動', '小說 電影 吃吃吃', '看偵探片 睡覺 動漫 打球 學習', '學習 思考 耍廢 放空'];
+    var info_food_text = ['甜點 厚切洋芋片', '珍奶', '火鍋 燒烤 日式料理', '咖啡館 燒烤 甜品', '生魚片 握壽司 甜食', '我是不挑食仔', '肉 火鍋 燒烤 各式料理', '泰式料理 速食'];
+    function prev_btn_clicked()
+    {
+      cur_member_no--;
+      if(cur_member_no < 0)
+        cur_member_no = 7;
+      $( '#bg_img' ).attr('src', './img/' + cur_member_no + '_bubble.png');
+      $( '#member_img' ).attr('src', './img/' + cur_member_no + '.png');
+      $( '#jobtitle' ).text( jobtitle_text[cur_member_no] );
+      $( '#info_name' ).text( info_name_text[cur_member_no] );
+      $( '#info_dep' ).text( info_dep_text[cur_member_no] );
+      $( '#info_hobby' ).text( info_hobby_text[cur_member_no] );
+      $( '#info_food' ).text( info_food_text[cur_member_no] );
+
+      if( cur_member_no >= 4 )
+        $( '#jobtitle' ).css('color', 'gold');
+      else
+        $( '#jobtitle' ).css('color', 'white');
+    }
+
+    function next_btn_clicked()
+    {
+      cur_member_no++;
+      if(cur_member_no > 7)
+        cur_member_no = 0;
+      $( '#bg_img' ).attr('src', './img/' + cur_member_no + '_bubble.png');
+      $( '#member_img' ).attr('src', './img/' + cur_member_no + '.png');
+      $( '#jobtitle' ).text( jobtitle_text[cur_member_no] );
+      $( '#info_name' ).text( info_name_text[cur_member_no] );
+      $( '#info_dep' ).text( info_dep_text[cur_member_no] );
+      $( '#info_hobby' ).text( info_hobby_text[cur_member_no] );
+      $( '#info_food' ).text( info_food_text[cur_member_no] );
+
+      if( cur_member_no >= 4 )
+        $( '#jobtitle' ).css('color', 'gold');
+      else
+        $( '#jobtitle' ).css('color', 'white');
+    }
+
+
+    // initialize
+    $( document ).ready(function(){
+      adjustDisplay();
+      $( '#prev_btn' ).click(prev_btn_clicked);
+      $( '#next_btn' ).click(next_btn_clicked);
+    });
+    $( window ).resize(adjustDisplay);
+  </script>
+
+  <style>
+    .center-align {
+      position: absolute;
+      display: inline-block;
+      bottom: 0px;
+      left: 50vw;
+    }
+    .ctrlbtn img{
+      position: absolute;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+    }
+  </style>
+
+  
+
+</head>
+
+<body scroll="no" style="overflow: hidden;background: url(./img/bg_team.png);background-repeat: no-repeat;background-size: cover;">
+
+
+<div class="site-container">
+  <div class="site-pusher">
+    
+    <header class="header">
+      
+      <a href="#" class="header__icon" id="header__icon"></a>
+      <a href="#"  class="header__logo">
+        <img id="logo_img" src="./img/logo.png" style="height: 66px;padding-top: 10px;padding-left: 20px;">
+        <p id="logo_text" style="display: inline-block;line-height: 15px;font-family: calibri;transform: translateY(-15px);">
+          <spanstyle="font-size: 18pt;">一起吃飯吧!</span>
+          <br>
+          <span style="font-size: 10pt;">In Tainan</span>
+        </p>
+      </a>
+      
+      <nav class="menu">
+        <a href="./home.html">Home</a>
+        <a href="./aboutus.html">About Us</a>
+        <a href="./team.html">Team</a>
+        <a href="#" id="signin" class="btn black" style="padding: 10px 20pt;line-height: 10px;">Sign In</a>
+      </nav>
+      
+    </header>
+
+    <div class="site-content">
+      <div class="container" style="width: 100vw;">
+
+        <!--<h1 id="dbg"></h1>-->
+        <img id="bg_img" class="center-align" src="./img/0_bubble.png" style="z-index: -1000;"></img>
+        <img id="member_img" class="center-align" src="./img/0.png" style="z-index: -1000;"></img>
+        <h1 id="jobtitle" class="center-align" style="margin-left: -62px;text-shadow: -2px -3px 1px black;font-family: calibri;color: white;">Designer</h1>
+        <div id="info">
+          <p>
+            <span id="info_name">王珉</span>
+            <span id="info_dep">工業設計系 碩一</span><br>
+            <span id="info_hobby">電影 貓咪 遊戲 旅行</span><br>
+            <span id="info_food">甜點 厚切洋芋片</span><br>
+          </p>
+        </div>
+        <a id="prev_btn" href="#" class="ctrlbtn center-align"><img src="./img/button_left.png"></img></a>
+        <a id="next_btn" href="#" class="ctrlbtn center-align"><img src="./img/button_right.png"></img></a>
+
+        <div id="sharebar" style="bottom:0px;background-color: dimgray;width: 100vw;height: 44px;position: absolute;display: inline-block;">
+          <a id="share_mail" href="#" style="float: right;">
+            <img class="share_img" src="./img/share_mail.png" style="height: 33px;padding: 7px 30px 15px 15px;">
+          </a>
+          <a id="share_twitter" href="#" style="float: right;">
+            <img class="share_img" src="./img/share_twitter.png" style="height: 33px;padding: 7px 15px;">
+          </a>
+          <a id="share_fb" href="#" style="float: right;">
+            <img class="share_img" src="./img/share_fb.png" style="height: 33px;padding: 7px 15px;">
+          </a>
+        </div>
+      </div> <!-- END container -->
+    </div> <!-- END site-content -->
+    <div class="site-cache" id="site-cache"></div>
+  </div> <!-- END site-pusher -->
+</div> <!-- END site-container -->
+
+</body>
+
+</html>

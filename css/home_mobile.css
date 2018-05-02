@@ -1,0 +1,62 @@
+.food{
+  position:absolute;
+  height:10%;
+}
+#cup_misoshiru_1{
+  top: 18vh ;
+  left: 6vw ;
+}
+#cup_misoshiru_2{
+  top:70vh;
+  left:80vw;
+}
+#drink_denkyu_bottle_yellow_1{
+  top:7vh;
+  left:38vw;
+}
+#drink_denkyu_bottle_yellow_2{
+  top:60vh;
+  left:65vw;
+}
+#food_harusame_soup_1{
+  top:17vh;
+  left:53vw;
+}
+#food_harusame_soup_2{
+  top:44vh;
+  left:81vw;
+}
+#food_ozouni_shiromiso_1{
+  top:31vh;
+  left:84vw;
+}
+#food_ozouni_shiromiso_2{
+  top:68vh;
+  left:4vw;
+}
+#food_yakimanju_1{
+  top:18vh;
+  left:81vw;
+}
+#food_yakimanju_2{
+  top:33vh;
+  left:0vw;
+  transform: rotate(90deg);
+}
+#onigiri_tenmusu_1{
+  top:0vh;
+  left:77vw;
+  transform: rotate(-40deg);
+}
+#onigiri_tenmusu_2{
+  top:52vh;
+  left:23vw;
+}
+#sushi_maguro_dukushi_1{
+  top:0vh;
+  left:10vw;
+}
+#sushi_maguro_dukushi_2{
+  top:45vh;
+  left:45vw;
+}

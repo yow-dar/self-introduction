@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet'>
+
+  <title>About Us</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="./js/menu.js"></script>
+  
+  <link rel="stylesheet" href="./css/menustyle.css">
+  <link rel="stylesheet" href="./css/buttonstyle.css">
+
+  <script>
+    // triggered when 1. window is resized, 2. startup
+    function adjustDisplay()
+    {
+      $( '.container' ).css('height', ($( window ).height()-66)+'px');
+      $('#dbg').text( $(window).width() + ' x ' + $(window).height() );
+
+      if( parseInt($( window ).width()) > 768 ) { // landscape
+        $( '#sharebar' ).css('height', '44px');
+        $( '.share_img' ).css('height', '33px');
+        $( '#logo_img' ).css('height', '66px');
+        $( '#logo_text').css('transform', 'translateY(-15px)');
+
+        $( '#story' ).css('height', '70vh');
+        $( '#story_title' ).css('height', '90px');
+        $( '#story_title>img' ).css('height', '75px');
+        $( '#story_title>p' ).css({
+          'font-size': '30pt',
+          'transform': 'translateY(-17pt)'
+        });
+      } else { // portrait
+        $( '#sharebar' ).css('height', '33px');
+        $( '.share_img' ).css('height', '22px');
+        $( '#logo_img' ).css('height', '44px');
+        $( '#logo_text').css('transform', 'translateY(-5px)');
+
+        $( '#story' ).css('height', '80vh');
+        $( '#story_title' ).css('height', '60px');
+        $( '#story_title>img' ).css('height', '50px');
+        $( '#story_title>p' ).css({
+          'font-size': '15pt',
+          'transform': 'translateY(-12pt)'
+        });
+      }
+
+      // center align
+      $( '.center-align' ).each(function(){
+        $( this ).css('margin-left' , '-' + parseInt( $( this ).css('width') )/2 + 'px');
+      });
+    }
+
+    // initialize
+    $( document ).ready(adjustDisplay);
+    $( window ).resize(adjustDisplay);
+  </script>
+
+  <style>
+    .center-align {
+      position: absolute;
+      display: inline-block;
+      bottom: 0px;
+      left: 50vw;
+    }
+  </style>
+
+  
+
+</head>
+
+<body scroll="no" style="overflow: hidden;background: url(./img/bg_aboutus.png);background-repeat: no-repeat;background-size: cover;">
+
+
+<div class="site-container">
+  <div class="site-pusher">
+    
+    <header class="header">
+      
+      <a href="#" class="header__icon" id="header__icon"></a>
+      <a href="#"  class="header__logo">
+        <img id="logo_img" src="./img/logo.png" style="height: 66px;padding-top: 10px;padding-left: 20px;">
+        <p id="logo_text" style="display: inline-block;line-height: 15px;font-family: calibri;transform: translateY(-15px);">
+          <spanstyle="font-size: 18pt;">一起吃飯吧!</span>
+          <br>
+          <span style="font-size: 10pt;">In Tainan</span>
+        </p>
+      </a>
+      
+      <nav class="menu">
+        <a href="./home.html">Home</a>
+        <a href="./aboutus.html">About Us</a>
+        <a href="./team.html">Team</a>
+        <a href="#" id="signin" class="btn black" style="padding: 10px 20pt;line-height: 10px;">Sign In</a>
+      </nav>
+      
+    </header>
+
+    <div class="site-content">
+      <div class="container" style="width: 100vw;">
+
+        <div id="story" class="center-align" style="width: 70vw; height: 70vh; margin-left: -342px; bottom: 10vw;overflow: scroll;">
+          <div id="story_title" style="height: 90px;">
+            <img src="./img/burger.png" style="height:75px">
+            <p style="display: inline-block;font-size: 30pt;transform: translateY(-17pt);">關於「踏溯台南」</p>
+          </div>
+          <p>
+            「踏溯台南」課程，可以說是認識台灣課程的深化<br><br>
+            這個課程乍看是地方性的，有別於認識台灣課程的國家性，但是這個課程以行動踏溯在地的生活脈絡，比起認識台灣課程更貼近台灣土地的溫度。而當一個學生對大學所在地有過這樣的行動踏溯，也就會自然而然地對自己的家鄉，乃至更多別的空間產生同樣的行動欲求。如果其他的大學，也能夠開設類似的課程，讓學生從身邊開始踏溯這塊土地的各種故事，那麼將來年輕世代以行動發掘問題並以行動解決問題的能力，將使台灣有更大的優質化機會。<br><br>
+            從另一個角度來看，難得的在地踏溯題材，學生利用機會調查研究在地困境，將來投入各行各業重新遭遇那些議題，則以前親臨的經驗將會成為解決問題的支援意識，不致陷入抽象理論的陷阱。<br><br>
+            「踏溯台南」，鼓勵學生從在地行動學習異質經驗，感情、審美、理念、思想、問題意識、解決方案都從實際出發，這才是以學生為主體的活教育，才能豐富學生的學習與生活。
+          </p>
+        </div>
+
+
+        <div id="sharebar" style="bottom:0px;background-color: dimgray;width: 100vw;height: 44px;position: absolute;display: inline-block;">
+          <a id="share_mail" href="#" style="float: right;">
+            <img class="share_img" src="./img/share_mail.png" style="height: 33px;padding: 7px 30px 15px 15px;">
+          </a>
+          <a id="share_twitter" href="#" style="float: right;">
+            <img class="share_img" src="./img/share_twitter.png" style="height: 33px;padding: 7px 15px;">
+          </a>
+          <a id="share_fb" href="#" style="float: right;">
+            <img class="share_img" src="./img/share_fb.png" style="height: 33px;padding: 7px 15px;">
+          </a>
+        </div>
+      </div> <!-- END container -->
+    </div> <!-- END site-content -->
+    <div class="site-cache" id="site-cache"></div>
+  </div> <!-- END site-pusher -->
+</div> <!-- END site-container -->
+
+</body>
+
+</html>
